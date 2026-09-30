@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Tab",
+  "version": "1.0.0",
+  "description": "A calm new tab dashboard: to-do list, today's Google Calendar events, and a focus timer.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo1mQaUo8feePpnBL4mBBb9XxkNjoNz4T3L+gN6yws4X52T4O72HDWlt7yEAw92MqCgIAeAaUgisjC/2gRXgng2v37Hp9AQm8ifCCqxUKohZf1R7GKtaKaHN7qdGCJRE6utWz6pWupWrKLgg5uiv2vkdTXjTeyK0Ue0wzuczl3A1a9LdpCk0ss0A4nz8wHHk4iwVlDocbblA+F/mvac5E4c0W07u+Q+DDaGLmKRqgN7GxSa+GwSCMYUcbSxCC64zLAegO/zAfG+aBX/FaKv6QHMEzgv2xKhDe0fgdxt9GNN7ddRGx5RyiqUQ+7ArpYl9EHGgUmDKrY4gYZFwPDe1axQIDAQAB",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "identity",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.googleapis.com/*",
+    "https://oauth2.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar.readonly"
+    ]
+  }
+}

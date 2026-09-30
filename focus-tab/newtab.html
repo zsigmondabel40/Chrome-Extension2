@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-part="day">
+  <main class="stage">
+    <header class="hero">
+      <p id="clock" class="clock">--:--</p>
+      <p id="greeting" class="greeting"></p>
+    </header>
+
+    <div class="grid">
+      <section class="panel cal" aria-labelledby="cal-h">
+        <div class="panel-head">
+          <h2 id="cal-h">Today</h2>
+          <span id="cal-date" class="panel-meta"></span>
+        </div>
+        <p id="cal-status" class="status" role="status" hidden></p>
+        <ul id="cal-list" class="list"></ul>
+        <div id="cal-connect" class="empty" hidden>
+          <p>See today's events next to your tasks.</p>
+          <button id="cal-connect-btn" class="btn btn-primary" type="button">Connect Google Calendar</button>
+        </div>
+        <p id="cal-empty" class="empty-text" hidden>Nothing scheduled today.</p>
+      </section>
+
+      <section class="timer" aria-labelledby="timer-h">
+        <h2 id="timer-h" class="phase">Focus</h2>
+        <p id="timer-display" class="timer-display" role="timer">25:00</p>
+        <div class="progress" aria-hidden="true"><div id="timer-progress" class="progress-fill"></div></div>
+        <div class="timer-actions">
+          <button id="timer-toggle" class="btn btn-primary" type="button">Start</button>
+          <button id="timer-reset" class="btn btn-ghost" type="button">Reset</button>
+        </div>
+      </section>
+
+      <section class="panel tasks" aria-labelledby="tasks-h">
+        <div class="panel-head">
+          <h2 id="tasks-h">Tasks</h2>
+          <span id="task-count" class="panel-meta"></span>
+        </div>
+        <form id="task-form" class="task-form" autocomplete="off">
+          <label class="sr-only" for="task-input">New task</label>
+          <input id="task-input" type="text" maxlength="200" placeholder="Add a task">
+          <button class="btn btn-ghost" type="submit">Add task</button>
+        </form>
+        <ul id="task-list" class="list"></ul>
+        <p id="task-empty" class="empty-text" hidden>No tasks yet. Add your first one above.</p>
+      </section>
+    </div>
+
+    <button id="settings-open" class="settings-open" type="button">Settings</button>
+  </main>
+
+  <dialog id="settings" aria-labelledby="settings-h">
+    <form method="dialog" class="settings-form">
+      <h2 id="settings-h">Settings</h2>
+
+      <label class="field">
+        <span>Your name</span>
+        <input id="set-name" type="text" maxlength="40" placeholder="Shown in the greeting">
+      </label>
+
+      <div class="field-row">
+        <label class="field">
+          <span>Focus (minutes)</span>
+          <input id="set-focus" type="number" min="1" max="180" step="1">
+        </label>
+        <label class="field">
+          <span>Break (minutes)</span>
+          <input id="set-break" type="number" min="1" max="60" step="1">
+        </label>
+      </div>
+
+      <label class="check">
+        <input id="set-12h" type="checkbox">
+        <span>Use 12-hour clock</span>
+      </label>
+
+      <div class="settings-actions">
+        <button id="cal-disconnect" class="btn btn-ghost" type="button" hidden>Disconnect Google Calendar</button>
+        <button id="delete-all" class="btn btn-danger" type="button">Delete all data</button>
+      </div>
+
+      <div class="settings-footer">
+        <button class="btn btn-primary" value="close">Done</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="newtab.js"></script>
+</body>
+</html>
